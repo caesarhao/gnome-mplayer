@@ -29,5 +29,11 @@
 *.hex
 
 # Debug files
+Debug/
 *.dSYM/
 *.su
+
+# tool files
+autom4te.cache/
+*~
+
