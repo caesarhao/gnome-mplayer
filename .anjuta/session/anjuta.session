@@ -2,18 +2,20 @@
 Maximized=1
 Geometry=1366x704+0+27
 
+[File Loader]
+Files=../../src/gnome-mplayer.c#1%%%../../src/gnome-mplayer.h#35%%%../../src/main.c#31%%%../../src/gnome_mplayer.ui
+
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
 
 [Execution]
-Program arguments=
 Program uri=../../Debug/src/gnome_mplayer
 Run in terminal=2
 Working directories=../../.
 
 [Project Manager]
 Shortcut=gnome-mplayer//src//gnome_mplayer
-Expand=gnome-mplayer%%%gnome-mplayer//src%%%gnome-mplayer//src//ui
+Expand=gnome-mplayer%%%gnome-mplayer//src%%%gnome-mplayer//src//gnome_mplayer
 
 [Build]
 Configuration list=1:Default:%%%1:Debug:Debug%%%1:Profiling:Profiling%%%1:Optimized:Optimized
@@ -25,6 +27,3 @@ BuildArgs/Optimized=--enable-maintainer-mode 'CFLAGS=-O2' 'CXXFLAGS=-O2' 'JFLAGS
 
 [Debugger]
 Stop at beginning=2
-
-[File Loader]
-Files=../../src/gnome_mplayer.ui
