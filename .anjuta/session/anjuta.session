@@ -2,9 +2,6 @@
 Maximized=1
 Geometry=1366x704+0+27
 
-[File Loader]
-Files=../../src/gnome-mplayer.c#1%%%../../src/gnome-mplayer.h#35%%%../../src/main.c#31%%%../../src/gnome_mplayer.ui
-
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
 
