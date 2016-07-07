@@ -168,629 +168,647 @@
     <signal name="motion-notify-event" handler="motion_notify_callback" swapped="no"/>
     <signal name="window-state-event" handler="window_state_callback" swapped="no"/>
     <child>
-      <object class="GtkMenuBar" id="menubar">
+      <object class="GtkBox" id="vbox_master">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <child>
-          <object class="GtkMenuItem" id="menuitem_file">
+          <object class="GtkMenuBar" id="menubar">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">_File</property>
-            <property name="use_underline">True</property>
-            <child type="submenu">
-              <object class="GtkMenu" id="menu_file">
+            <child>
+              <object class="GtkMenuItem" id="menuitem_file">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="accel_group">accel_group</property>
-                <child>
-                  <object class="GtkImageMenuItem" id="menuitem_file_open">
-                    <property name="label">gtk-open</property>
+                <property name="label" translatable="yes">_File</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu_file">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="use_underline">True</property>
-                    <property name="use_stock">True</property>
                     <property name="accel_group">accel_group</property>
-                    <signal name="activate" handler="menuitem_open_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_file_open_folder">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Open _Folder</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="add_folder_to_playlist" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_file_open_location">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_OPEN_LOCATION</property>
-                    <property name="label" translatable="yes">Open _Location</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_open_location_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_file_disc">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">_Disk</property>
-                    <property name="use_underline">True</property>
-                    <child type="submenu">
-                      <object class="GtkMenu" id="menu_file_disc">
+                    <child>
+                      <object class="GtkImageMenuItem" id="menuitem_file_open">
+                        <property name="label">gtk-open</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <child>
-                          <object class="GtkMenuItem" id="menuitem_file_open_acd">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Open _Audio CD</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="menuitem_open_acd_callback" swapped="no"/>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkSeparatorMenuItem" id="menuitem_file_open_sep1">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkMenuItem" id="menuitem_file_open_dvdnav">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Open DVD with _Menus</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="menuitem_open_dvdnav_callback" swapped="no"/>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkMenuItem" id="menuitem_file_open_dvdnav_folder">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Open DVD from Folder with M_enus</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="menuitem_open_dvdnav_folder_callback" swapped="no"/>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkMenuItem" id="menuitem_file_open_dvdnav_iso">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Open DVD from ISO with Me_nus</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="menuitem_open_dvdnav_iso_callback" swapped="no"/>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkSeparatorMenuItem" id="menuitem_file_open_sep2">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkMenuItem" id="menuitem_file_open_vcd">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Open _VCD</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="menuitem_open_vcd_callback" swapped="no"/>
-                          </object>
-                        </child>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accel_group</property>
+                        <signal name="activate" handler="menuitem_open_callback" swapped="no"/>
                       </object>
                     </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_file_tv">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">_TV</property>
-                    <property name="use_underline">True</property>
-                    <child type="submenu">
-                      <object class="GtkMenu" id="menu_file_tv">
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_file_open_folder">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <child>
-                          <object class="GtkMenuItem" id="menuitem_file_open_atv">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Open _Analog TV</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="menuitem_open_atv_callback" swapped="no"/>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkMenuItem" id="menuitem_file_open_dtv">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Open _Digital TV</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="menuitem_open_dtv_callback" swapped="no"/>
-                          </object>
-                        </child>
+                        <property name="label" translatable="yes">Open _Folder</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="add_folder_to_playlist" swapped="no"/>
                       </object>
                     </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_file_open_ipod">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Open _iPod</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_open_ipod_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_file_recent">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Open _Recent</property>
-                    <property name="use_underline">True</property>
-                    <child type="submenu">
-                      <object class="GtkRecentChooserMenu" id="menuitem_file_recent_items">
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_file_open_location">
+                        <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="filter">recent_filter</property>
-                        <property name="limit">5</property>
-                        <property name="local_only">False</property>
-                        <property name="show_tips">True</property>
-                        <property name="sort_type">mru</property>
-                        <signal name="item-activated" handler="menuitem_open_recent_callback" swapped="no"/>
+                        <property name="accel_path">ACCEL_PATH_OPEN_LOCATION</property>
+                        <property name="label" translatable="yes">Open _Location</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_open_location_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_file_disc">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Disk</property>
+                        <property name="use_underline">True</property>
+                        <child type="submenu">
+                          <object class="GtkMenu" id="menu_file_disc">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <child>
+                              <object class="GtkMenuItem" id="menuitem_file_open_acd">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">Open _Audio CD</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="menuitem_open_acd_callback" swapped="no"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkSeparatorMenuItem" id="menuitem_file_open_sep1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkMenuItem" id="menuitem_file_open_dvdnav">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">Open DVD with _Menus</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="menuitem_open_dvdnav_callback" swapped="no"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkMenuItem" id="menuitem_file_open_dvdnav_folder">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">Open DVD from Folder with M_enus</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="menuitem_open_dvdnav_folder_callback" swapped="no"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkMenuItem" id="menuitem_file_open_dvdnav_iso">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">Open DVD from ISO with Me_nus</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="menuitem_open_dvdnav_iso_callback" swapped="no"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkSeparatorMenuItem" id="menuitem_file_open_sep2">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkMenuItem" id="menuitem_file_open_vcd">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">Open _VCD</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="menuitem_open_vcd_callback" swapped="no"/>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_file_tv">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_TV</property>
+                        <property name="use_underline">True</property>
+                        <child type="submenu">
+                          <object class="GtkMenu" id="menu_file_tv">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <child>
+                              <object class="GtkMenuItem" id="menuitem_file_open_atv">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">Open _Analog TV</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="menuitem_open_atv_callback" swapped="no"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkMenuItem" id="menuitem_file_open_dtv">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">Open _Digital TV</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="menuitem_open_dtv_callback" swapped="no"/>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_file_open_ipod">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Open _iPod</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_open_ipod_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_file_recent">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Open _Recent</property>
+                        <property name="use_underline">True</property>
+                        <child type="submenu">
+                          <object class="GtkRecentChooserMenu" id="menuitem_file_recent_items">
+                            <property name="can_focus">False</property>
+                            <property name="filter">recent_filter</property>
+                            <property name="limit">5</property>
+                            <property name="local_only">False</property>
+                            <property name="show_tips">True</property>
+                            <property name="sort_type">mru</property>
+                            <signal name="item-activated" handler="menuitem_open_recent_callback" swapped="no"/>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="menuitem_file_sep2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="menuitem_file_quit">
+                        <property name="label">gtk-quit</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="accel_group">accel_group</property>
+                        <signal name="activate" handler="menuitem_quit_callback" swapped="no"/>
                       </object>
                     </child>
                   </object>
                 </child>
-                <child>
-                  <object class="GtkSeparatorMenuItem" id="menuitem_file_sep2">
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="menuitem_edit">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Edit</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu_edit">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkImageMenuItem" id="menuitem_file_quit">
-                    <property name="label">gtk-quit</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="use_underline">True</property>
-                    <property name="use_stock">True</property>
                     <property name="accel_group">accel_group</property>
-                    <signal name="activate" handler="menuitem_quit_callback" swapped="no"/>
-                  </object>
-                </child>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkMenuItem" id="menuitem_edit">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">_Edit</property>
-            <property name="use_underline">True</property>
-            <child type="submenu">
-              <object class="GtkMenu" id="menu_edit">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="accel_group">accel_group</property>
-                <child>
-                  <object class="GtkCheckMenuItem" id="menuitem_edit_random">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label">_Shuffle Playlist</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_edit_random_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkCheckMenuItem" id="menuitem_edit_loop">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label">_Loop Playlist</property>
-                    <property name="use_underline">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkCheckMenuItem" id="menuitem_edit_play_single">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label">P_lay Single Track from Playlist</property>
-                    <property name="use_underline">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSeparatorMenuItem" id="menuitem_edit_sep0">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_edit_switch_audio">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">S_witch Audio Track</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_edit_switch_audio_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_edit_set_audiofile">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Set Audi_o</property>
-                    <property name="use_underline">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_edit_select_audio_lang">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Select _Audio Language</property>
-                    <property name="use_underline">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_edit_set_subtitle">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Set S_ubtitle</property>
-                    <property name="use_underline">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_edit_select_sub_lang">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">S_elect Subtitle Language</property>
-                    <property name="use_underline">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSeparatorMenuItem" id="menuitem_edit_sep1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_edit_take_screenshot">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="tooltip_text" translatable="yes">Files named ’shotNNNN.png’ will be saved in the working directory</property>
-                    <property name="accel_path">ACCEL_PATH_EDIT_SCREENSHOT</property>
-                    <property name="label" translatable="yes">_Take Screenshot</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_edit_take_screenshot_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSeparatorMenuItem" id="menuitem_edit_sep2">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkImageMenuItem" id="menuitem_edit_config">
-                    <property name="label">gtk-preferences</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_EDIT_PREFERENCES</property>
-                    <property name="use_underline">True</property>
-                    <property name="use_stock">True</property>
-                    <signal name="activate" handler="menuitem_config_callback" swapped="no"/>
-                  </object>
-                </child>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkMenuItem" id="menuitem_view">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">_View</property>
-            <property name="use_underline">True</property>
-            <child type="submenu">
-              <object class="GtkMenu" id="menu_view">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="accel_group">accel_group</property>
-                <child>
-                  <object class="GtkCheckMenuItem" id="menuitem_view_playlist">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_PLAYLIST</property>
-                    <property name="label">_Playlist</property>
-                    <property name="use_underline">True</property>
-                    <signal name="toggled" handler="menuitem_view_playlist_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkCheckMenuItem" id="menuitem_view_info">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_INFO</property>
-                    <property name="label">Media _Info</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_view_info_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkCheckMenuItem" id="menuitem_view_details">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_DETAILS</property>
-                    <property name="label">D_etails</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_details_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkCheckMenuItem" id="menuitem_view_meter">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_METER</property>
-                    <property name="label">Audio _Meter</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_meter_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSeparatorMenuItem" id="menuitem_view_sep0">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkCheckMenuItem" id="menuitem_view_fullscreen">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_FULLSCREEN</property>
-                    <property name="label">_Full Screen</property>
-                    <property name="use_underline">True</property>
-                    <signal name="toggled" handler="menuitem_fs_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSeparatorMenuItem" id="menuitem_view_sep1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_view_onetoone">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_NORMAL</property>
-                    <property name="label" translatable="yes">_Normal (1:1)</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_view_onetoone_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_view_twotoone">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_DOUBLE</property>
-                    <property name="label" translatable="yes">_Double Size (2:1)</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_view_twotoone_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_view_onetotwo">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_HALF</property>
-                    <property name="label" translatable="yes">_Half Size (1:2)</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_view_onetotwo_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_view_onetoonepointfive">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_HALF_LARGER</property>
-                    <property name="label" translatable="yes">Half _Larger (1.5:1)</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_view_onetoonepointfive_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_view_aspect">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_ASPECT</property>
-                    <property name="label" translatable="yes">_Aspect</property>
-                    <property name="use_underline">True</property>
-                    <child type="submenu">
-                      <object class="GtkMenu" id="menu_view_aspect">
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_edit_random">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <child>
-                          <object class="GtkCheckMenuItem" id="menuitem_view_aspect_default">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">D_efault Aspect</property>
-                            <property name="use_underline">True</property>
-                            <property name="active">True</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkCheckMenuItem" id="menuitem_view_aspect_four_three">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">_4:3 Aspect</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="menuitem_view_aspect_callback" swapped="no"/>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkCheckMenuItem" id="menuitem_view_aspect_sixteen_nine">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">_16:9 Aspect</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="menuitem_view_aspect_callback" swapped="no"/>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkCheckMenuItem" id="menuitem_view_aspect_sixteen_ten">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">1_6:10 Aspect</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="menuitem_view_aspect_callback" swapped="no"/>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkCheckMenuItem" id="menuitem_view_aspect_anamorphic">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">_2.39:1 Aspect (Anamorphic)</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="menuitem_view_aspect_callback" swapped="no"/>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkCheckMenuItem" id="menuitem_view_aspect_follow_window">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">_Follow Window</property>
-                            <property name="use_underline">True</property>
-                            <signal name="activate" handler="menuitem_view_aspect_callback" swapped="no"/>
-                          </object>
-                        </child>
+                        <property name="label">_Shuffle Playlist</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_edit_random_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_edit_loop">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label">_Loop Playlist</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_edit_play_single">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label">P_lay Single Track from Playlist</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="menuitem_edit_sep0">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_edit_switch_audio">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">S_witch Audio Track</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_edit_switch_audio_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_edit_set_audiofile">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Set Audi_o</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_edit_select_audio_lang">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Select _Audio Language</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_edit_set_subtitle">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Set S_ubtitle</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_edit_select_sub_lang">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">S_elect Subtitle Language</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="menuitem_edit_sep1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_edit_take_screenshot">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">Files named ’shotNNNN.png’ will be saved in the working directory</property>
+                        <property name="accel_path">ACCEL_PATH_EDIT_SCREENSHOT</property>
+                        <property name="label" translatable="yes">_Take Screenshot</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_edit_take_screenshot_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="menuitem_edit_sep2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="menuitem_edit_config">
+                        <property name="label">gtk-preferences</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_EDIT_PREFERENCES</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="menuitem_config_callback" swapped="no"/>
                       </object>
                     </child>
                   </object>
                 </child>
-                <child>
-                  <object class="GtkSeparatorMenuItem" id="menuitem_view_sep2">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkCheckMenuItem" id="menuitem_view_subtitles">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_SUBTITLES</property>
-                    <property name="label">Show _Subtitles</property>
-                    <property name="use_underline">True</property>
-                    <signal name="toggled" handler="menuitem_view_subtitles_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_view_smaller_subtitle">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_DECREASE_SIZE</property>
-                    <property name="label" translatable="yes">Decrease Subtitle Size</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_view_smaller_subtitle_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_view_larger_subtitle">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_INCREASE_SIZE</property>
-                    <property name="label" translatable="yes">Increase Subtitle Size</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_view_larger_subtitle_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_view_decrease_subtitle_delay">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Decrease Subtitle Delay</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_view_decrease_subtitle_delay_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_view_increase_subtitle_delay">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Increase Subtitle Delay</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_view_increase_subtitle_delay_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSeparatorMenuItem" id="menuitem_view_sep3">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_view_angle">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_ANGLE</property>
-                    <property name="label" translatable="yes">Switch An_gle</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_view_angle_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkCheckMenuItem" id="menuitem_view_controls">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="accel_path">ACCEL_PATH_VIEW_CONTROLS</property>
-                    <property name="label">_Controls</property>
-                    <property name="use_underline">True</property>
-                    <property name="active">True</property>
-                    <signal name="toggled" handler="menuitem_showcontrols_callback" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSeparatorMenuItem" id="menuitem_view_sep4">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_view_advanced">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">_Video Picture Adjustments</property>
-                    <property name="use_underline">True</property>
-                    <signal name="activate" handler="menuitem_advanced_callback" swapped="no"/>
-                  </object>
-                </child>
               </object>
             </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkMenuItem" id="menuitem_help">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">_Help</property>
-            <property name="use_underline">True</property>
-            <child type="submenu">
-              <object class="GtkMenu" id="menu_help">
+            <child>
+              <object class="GtkMenuItem" id="menuitem_view">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="accel_group">accel_group</property>
-                <child>
-                  <object class="GtkImageMenuItem" id="menuitem_help_about">
-                    <property name="label">gtk-about</property>
+                <property name="label" translatable="yes">_View</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu_view">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="use_underline">True</property>
-                    <property name="use_stock">True</property>
-                    <signal name="activate" handler="menuitem_about_callback" swapped="no"/>
+                    <property name="accel_group">accel_group</property>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_view_playlist">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_PLAYLIST</property>
+                        <property name="label">_Playlist</property>
+                        <property name="use_underline">True</property>
+                        <signal name="toggled" handler="menuitem_view_playlist_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_view_info">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_INFO</property>
+                        <property name="label">Media _Info</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_view_info_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_view_details">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_DETAILS</property>
+                        <property name="label">D_etails</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_details_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_view_meter">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_METER</property>
+                        <property name="label">Audio _Meter</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_meter_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="menuitem_view_sep0">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_view_fullscreen">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_FULLSCREEN</property>
+                        <property name="label">_Full Screen</property>
+                        <property name="use_underline">True</property>
+                        <signal name="toggled" handler="menuitem_fs_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="menuitem_view_sep1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_view_onetoone">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_NORMAL</property>
+                        <property name="label" translatable="yes">_Normal (1:1)</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_view_onetoone_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_view_twotoone">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_DOUBLE</property>
+                        <property name="label" translatable="yes">_Double Size (2:1)</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_view_twotoone_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_view_onetotwo">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_HALF</property>
+                        <property name="label" translatable="yes">_Half Size (1:2)</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_view_onetotwo_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_view_onetoonepointfive">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_HALF_LARGER</property>
+                        <property name="label" translatable="yes">Half _Larger (1.5:1)</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_view_onetoonepointfive_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_view_aspect">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_ASPECT</property>
+                        <property name="label" translatable="yes">_Aspect</property>
+                        <property name="use_underline">True</property>
+                        <child type="submenu">
+                          <object class="GtkMenu" id="menu_view_aspect">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <child>
+                              <object class="GtkCheckMenuItem" id="menuitem_view_aspect_default">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">D_efault Aspect</property>
+                                <property name="use_underline">True</property>
+                                <property name="active">True</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkCheckMenuItem" id="menuitem_view_aspect_four_three">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">_4:3 Aspect</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="menuitem_view_aspect_callback" swapped="no"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkCheckMenuItem" id="menuitem_view_aspect_sixteen_nine">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">_16:9 Aspect</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="menuitem_view_aspect_callback" swapped="no"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkCheckMenuItem" id="menuitem_view_aspect_sixteen_ten">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">1_6:10 Aspect</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="menuitem_view_aspect_callback" swapped="no"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkCheckMenuItem" id="menuitem_view_aspect_anamorphic">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">_2.39:1 Aspect (Anamorphic)</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="menuitem_view_aspect_callback" swapped="no"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkCheckMenuItem" id="menuitem_view_aspect_follow_window">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">_Follow Window</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="menuitem_view_aspect_callback" swapped="no"/>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="menuitem_view_sep2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_view_subtitles">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_SUBTITLES</property>
+                        <property name="label">Show _Subtitles</property>
+                        <property name="use_underline">True</property>
+                        <signal name="toggled" handler="menuitem_view_subtitles_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_view_smaller_subtitle">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_DECREASE_SIZE</property>
+                        <property name="label" translatable="yes">Decrease Subtitle Size</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_view_smaller_subtitle_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_view_larger_subtitle">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_INCREASE_SIZE</property>
+                        <property name="label" translatable="yes">Increase Subtitle Size</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_view_larger_subtitle_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_view_decrease_subtitle_delay">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Decrease Subtitle Delay</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_view_decrease_subtitle_delay_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_view_increase_subtitle_delay">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Increase Subtitle Delay</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_view_increase_subtitle_delay_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="menuitem_view_sep3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_view_angle">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_ANGLE</property>
+                        <property name="label" translatable="yes">Switch An_gle</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_view_angle_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="menuitem_view_controls">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="accel_path">ACCEL_PATH_VIEW_CONTROLS</property>
+                        <property name="label">_Controls</property>
+                        <property name="use_underline">True</property>
+                        <property name="active">True</property>
+                        <signal name="toggled" handler="menuitem_showcontrols_callback" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="menuitem_view_sep4">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menuitem_view_advanced">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Video Picture Adjustments</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="menuitem_advanced_callback" swapped="no"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="menuitem_help">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Help</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu_help">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="accel_group">accel_group</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="menuitem_help_about">
+                        <property name="label">gtk-about</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="menuitem_about_callback" swapped="no"/>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
             </child>
           </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
         </child>
       </object>
     </child>
